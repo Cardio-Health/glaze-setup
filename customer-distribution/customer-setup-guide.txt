@@ -1,0 +1,2 @@
+chmod +x glaze-setup.sh
+./glaze-setup.sh

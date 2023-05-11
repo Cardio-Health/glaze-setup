@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  frontend:
+    image: doctorati/glaze:frontend-latest
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - ./frontend/.env.docker
+    depends_on:
+      - backend
+  backend:
+    image: doctorati/glaze:backend-latest
+    ports:
+      - '8000:8000'
+    env_file:
+      - ./backend/.env.docker
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: evolution
+      MYSQL_DATABASE: main
+    volumes:
+      - 'db_data:/var/lib/mysql'
+      - './glaze-mysql-setup.sql:/docker-entrypoint-initdb.d/glaze-mysql-setup.sql'
+volumes:
+  db_data: {}
