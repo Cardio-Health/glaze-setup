@@ -3,7 +3,7 @@
 
 # make sure you have docker installed. for testing locally, just download docker desktop and run it.
 
-# if you have docker installed, run these 2 commands
+# if you have docker installed, run these 2 commands in terminal/command prompt
 # Fetch docker-compose.yml
 
 curl -O https://raw.githubusercontent.com/Cardio-Health/glaze-setup/main/docker/docker-compose.yml
