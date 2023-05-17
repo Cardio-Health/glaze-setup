@@ -14,6 +14,7 @@ services:
       - '8000:8000'
     environment:
       - NODE_ENV=docker
+      - USER_KEY=${USER_KEY}
     depends_on:
       - db
   
