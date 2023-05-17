@@ -61,7 +61,7 @@ CREATE TABLE `connectors` (
 
 LOCK TABLES `connectors` WRITE;
 /*!40000 ALTER TABLE `connectors` DISABLE KEYS */;
-INSERT INTO `connectors` VALUES (1,'slack'),(2,'mysql'),(3,'postgresql'),(4,'google spreadsheet');
+INSERT INTO `connectors` VALUES (1,'slack'),(2,'mysql'),(3,'postgresql'),(4,'google spreadsheet'),(5,'user definitions');
 /*!40000 ALTER TABLE `connectors` ENABLE KEYS */;
 UNLOCK TABLES;
 

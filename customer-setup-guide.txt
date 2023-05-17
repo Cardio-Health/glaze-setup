@@ -1,2 +1,7 @@
 chmod +x glaze-setup.sh
 ./glaze-setup.sh
+
+
+
+your application is live at: http://localhost:3000/dashboard/create
+```
