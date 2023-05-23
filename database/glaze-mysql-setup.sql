@@ -99,5 +99,10 @@ CREATE TABLE `user_connectors` (
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+GRANT ALL PRIVILEGES ON main.* TO 'root'@'%' IDENTIFIED BY 'evolution';
+FLUSH PRIVILEGES;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
