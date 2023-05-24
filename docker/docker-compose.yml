@@ -6,6 +6,7 @@ services:
       - '3000:3000'
     environment:
       - NODE_ENV=local
+      - NEXT_PUBLIC_FRONTEND_URL=${NEXT_PUBLIC_FRONTEND_URL}
     depends_on:
       - backend
   backend:
