@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   frontend:
-    image: doctorati/glaze:frontend-1.0
+    image: doctorati/glaze:frontend-1.1
     ports:
       - '3000:3000'
     environment:
@@ -10,7 +10,7 @@ services:
     depends_on:
       - backend
   backend:
-    image: doctorati/glaze:backend-1.0
+    image: doctorati/glaze:backend-1.1
     ports:
       - '8000:8000'
     environment:
@@ -20,7 +20,7 @@ services:
       - db
   
   db:
-    image: doctorati/glaze:database-1.0
+    image: doctorati/glaze:database-1.1
     environment:
       MYSQL_ROOT_PASSWORD: evolution
       MYSQL_DATABASE: main
