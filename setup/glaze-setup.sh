@@ -16,7 +16,7 @@ export NEXT_PUBLIC_FRONTEND_URL=http://<your_host>:3000
 #Example: export NEXT_PUBLIC_FRONTEND_URL=http://localhost:3000
 
 # Start the application
-docker-compose up -d
+docker-compose up 
 
 # please please wait for atleast 1 minute for the application to start , frontend may start early but won't work. so pleasee wait for 1 minute.
 # your application is live at: http://localhost:3000/dashboard/create
