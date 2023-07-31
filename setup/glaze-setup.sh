@@ -15,6 +15,7 @@ export USER_KEY='<ENTER_YOUR_KEY HERE>'
 export FRONTEND_URL=http://<your_host>
 #Example: export NEXT_PUBLIC_FRONTEND_URL=http://localhost:3000
 #Example: export FRONTEND_URL=http://ec2-43-204-98-46.ap-south-1.compute.amazonaws.com
+#If you are using host other than localhost, then make sure that http traffic to that host is routed to port 3000.
 
 # Start the application
 docker-compose up -d 
