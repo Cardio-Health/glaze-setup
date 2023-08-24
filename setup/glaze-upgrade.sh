@@ -4,6 +4,7 @@
 #!/bin/bash
 # script.sh
 
+#go to folder where your current docker-compose file is located
 #remove current docker compose file
 rm docker-compose.yml
 
