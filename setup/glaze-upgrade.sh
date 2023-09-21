@@ -4,12 +4,14 @@
 #!/bin/bash
 # script.sh
 
+#always run these commands in same folder where you ran your commands last time
 #go to folder where your current docker-compose file is located
-#remove current docker compose file
-rm docker-compose.yml
 
 #down current docker images
 sudo docker compose down
+
+#remove current docker compose file
+rm docker-compose.yml
 
 #list current docker images
 sudo docker images
@@ -28,10 +30,10 @@ export USER_KEY='<ENTER_YOUR_KEY HERE>'
 
 export FRONTEND_URL=http://<your_host>
 #Example: export FRONTEND_URL=http://ec2-43-204-98-46.ap-south-1.compute.amazonaws.com
-#Example: export NEXT_PUBLIC_FRONTEND_URL=http://localhost:3000
+#Example: export FRONTEND_URL=http://localhost:3000
 #If you are using host other than localhost, then make sure that http traffic to that host is routed to port 3000.
 
 # Start the application
-sudo -E docker-compose up -d 
+sudo -E docker compose up -d 
 # your application is live at: http://ec2-43-204-98-46.ap-south-1.compute.amazonaws.com/dashboard/create
 # your application is live at: http://localhost:3000/dashboard/create
