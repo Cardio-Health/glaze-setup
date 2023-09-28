@@ -6,7 +6,6 @@ services:
       - '3000:3000'
     environment:
       - NODE_ENV=local
-      - FRONTEND_URL=${FRONTEND_URL}
       - NEXTAUTH_URL=${FRONTEND_URL}
     depends_on:
       - backend
@@ -16,7 +15,6 @@ services:
       - '8000:8000'
     environment:
       - NODE_ENV=docker
-      - USER_KEY=${USER_KEY}
     depends_on:
       db:
         condition: service_healthy
