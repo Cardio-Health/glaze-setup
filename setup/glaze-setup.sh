@@ -9,9 +9,6 @@
 curl -O https://raw.githubusercontent.com/Cardio-Health/glaze-setup/main/docker/docker-compose.yml
 
 
-export USER_KEY='<ENTER_YOUR_KEY HERE>'
-#Example: export USER_KEY='d20ebdc1c64fe1bc05407e04314847fc:696ec0af7761b223c5a9808256795b7d817410ce7b9c753d4e27poi8e2ebb0331fkijf387d6941802f450f4b2bdbe5ba498c08'
-
 export FRONTEND_URL=http://<your_host>
 #Example: export NEXT_PUBLIC_FRONTEND_URL=http://localhost:3000
 #Example: export FRONTEND_URL=http://ec2-43-204-98-46.ap-south-1.compute.amazonaws.com
