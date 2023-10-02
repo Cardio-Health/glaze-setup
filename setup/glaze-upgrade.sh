@@ -25,5 +25,6 @@ export FRONTEND_URL=http://<your_host>
 
 # Start the application
 sudo -E docker compose up -d 
+# your application is live at: http://<your_host>/dashboard/create
 # your application is live at: http://ec2-43-204-98-46.ap-south-1.compute.amazonaws.com/dashboard/create
 # your application is live at: http://localhost:3000/dashboard/create
