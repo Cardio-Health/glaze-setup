@@ -13,7 +13,7 @@ sudo docker images
 #you will see your current version in terminal like 2.3
 #please replace x with your current version
 
-sudo docker rmi doctorati/glaze:frontend-3.0 doctorati/glaze:backend-3.0 doctorati/glaze:database-3.0
+sudo docker rmi doctorati/glaze:frontend-3.1 doctorati/glaze:backend-3.1 doctorati/glaze:database-3.1
 
 # Fetch new docker-compose.yml
 curl -O https://raw.githubusercontent.com/Cardio-Health/glaze-setup/main/docker/docker-compose.yml
