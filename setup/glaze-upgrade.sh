@@ -13,7 +13,7 @@ sudo docker images
 #you will see your current version in terminal like 2.3
 #please replace x with your current version
 
-sudo docker rmi doctorati/glaze:frontend-2.x doctorati/glaze:backend-2.x doctorati/glaze:database-2.x
+sudo docker rmi doctorati/glaze:frontend-3.0 doctorati/glaze:backend-3.0 doctorati/glaze:database-3.0
 
 # Fetch new docker-compose.yml
 curl -O https://raw.githubusercontent.com/Cardio-Health/glaze-setup/main/docker/docker-compose.yml
@@ -25,5 +25,6 @@ export FRONTEND_URL=http://<your_host>
 
 # Start the application
 sudo -E docker compose up -d 
+# your application is live at: http://<your_host>/dashboard/create
 # your application is live at: http://ec2-43-204-98-46.ap-south-1.compute.amazonaws.com/dashboard/create
 # your application is live at: http://localhost:3000/dashboard/create
