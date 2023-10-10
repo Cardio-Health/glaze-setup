@@ -20,7 +20,7 @@ curl -O https://raw.githubusercontent.com/Cardio-Health/glaze-setup/main/docker/
 export FRONTEND_URL=http://<your_host>
 #Example: export FRONTEND_URL=http://ec2-43-204-98-46.ap-south-1.compute.amazonaws.com
 #Example: export FRONTEND_URL=http://localhost:3000
-#If you are using host other than localhost, then make sure that http traffic to that host is routed to port 3000.
+#If you are using host other than localhost, then make sure that http traffic to that host:80 is enabled.
 
 # Start the application
 sudo -E docker compose up -d 
