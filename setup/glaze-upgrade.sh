@@ -8,14 +8,14 @@
 sudo docker compose down
 
 #list current docker images
-sudo docker images
+# sudo docker images
 
 #you will see your current version in terminal like 3.3
 #please replace 3.x with your current version like  3.3
 
 sudo docker rmi doctorati/glaze:frontend-3.3 doctorati/glaze:backend-3.3 doctorati/glaze:database-3.3
 # Fetch new docker-compose.yml
-curl -O https://raw.githubusercontent.com/Cardio-Health/glaze-setup/main/docker/docker-compose.yml
+#curl -O https://raw.githubusercontent.com/Cardio-Health/glaze-setup/main/docker/docker-compose.yml
 
 export FRONTEND_URL=http://<your_host>
 #Example: export FRONTEND_URL=http://ec2-43-204-98-46.ap-south-1.compute.amazonaws.com
