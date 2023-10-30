@@ -32,5 +32,18 @@ services:
       timeout: 10s
       retries: 5
       start_period: 5s
+  pg_db:
+    image: doctorati/glaze:pg_database-3.3
+    environment:
+      MYSQL_ROOT_PASSWORD: evolution
+      MYSQL_DATABASE: main
+    volumes:
+      - 'db_data:/var/lib/mysql'
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
 volumes:
   db_data: {}
