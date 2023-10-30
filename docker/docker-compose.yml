@@ -35,15 +35,22 @@ services:
   pg_db:
     image: doctorati/glaze:pg_database-3.3
     environment:
-      MYSQL_ROOT_PASSWORD: evolution
-      MYSQL_DATABASE: main
+      POSTGRES_PASSWORD: evolution
+      POSTGRES_DB: main
+      POSTGRES_USER: postgres
     volumes:
-      - 'db_data:/var/lib/mysql'
+      - pg_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      test: ["CMD-SHELL", "pg_isready", "-U", "postgres", "-d", "main"]
       interval: 30s
       timeout: 10s
       retries: 5
       start_period: 5s
 volumes:
   db_data: {}
+  pg_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${HOME}/glaze_db_data
+      o: bind
