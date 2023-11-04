@@ -16,14 +16,15 @@ services:
     environment:
       - NODE_ENV=docker
     depends_on:
-      db:
+      pgdb:
         condition: service_healthy
-  pg_db:
+  pgdb:
     image: doctorati/glaze:pg_database-3.3
     environment:
       POSTGRES_PASSWORD: evolution
       POSTGRES_DB: main
       POSTGRES_USER: postgres
+      PGUSER: postgres
     volumes:
       - pg_data:/var/lib/postgresql/data
     healthcheck:
@@ -37,5 +38,5 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: ${HOME}
+      device: ${HOME}/pg_data
       o: bind
