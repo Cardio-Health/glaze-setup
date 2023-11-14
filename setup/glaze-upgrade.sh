@@ -16,7 +16,7 @@ sudo docker images
 sudo docker rmi doctorati/glaze:frontend-3.x doctorati/glaze:backend-3.x doctorati/glaze:pg_database-3.x
 
 # Fetch new docker-compose.yml
-curl -O https://raw.githubusercontent.com/Cardio-Health/glaze-setup/main/docker/docker-compose.yml
+curl -O https://raw.githubusercontent.com/Cardio-Health/glaze-setup/main/new_docker/docker-compose.yml
 
 export FRONTEND_URL=http://<your_host>
 #Example: export FRONTEND_URL=http://ec2-43-204-98-46.ap-south-1.compute.amazonaws.com
