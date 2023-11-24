@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   frontend:
-    image: doctorati/glaze:frontend-3.4
+    image: doctorati/glaze:frontend-3.5
     ports:
       - '3000:3000'
     environment:
@@ -10,7 +10,7 @@ services:
     depends_on:
       - backend
   backend:
-    image: doctorati/glaze:backend-3.4
+    image: doctorati/glaze:backend-3.5
     ports:
       - '8000:8000'
     environment:
@@ -19,7 +19,7 @@ services:
       pgdb:
         condition: service_healthy
   pgdb:
-    image: doctorati/glaze:pg_database-3.4
+    image: doctorati/glaze:pg_database-3.5
     environment:
       POSTGRES_PASSWORD: evolution
       POSTGRES_DB: main
