@@ -6,10 +6,10 @@
 # if you have docker installed, run these 3 commands in terminal/command prompt
 
 # Fetch docker-compose.yml
-curl -O https://raw.githubusercontent.com/Cardio-Health/glaze-setup/main/docker/docker-compose.yml
+curl -O https://raw.githubusercontent.com/Cardio-Health/glaze-setup/main/new_docker/docker-compose.yml
 
 # Create a folder to store your local data
-mkdir ~/glaze_db_data
+mkdir ~/pg_data
 
 export FRONTEND_URL=http://<your_host>
 #Example: export NEXT_PUBLIC_FRONTEND_URL=http://localhost:3000
