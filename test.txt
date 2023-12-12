@@ -1,0 +1,57 @@
+db.collection('DeliveryAgent').aggregate([
+  {
+    $lookup: {
+      from: 'SalariedDaRatecard',
+      let: { 'ratecardid': { $toObjectId: '$ratecard.id' } },
+      pipeline: [
+        { $match: { $expr: { $eq: ['$_id', '$$ratecardid'] } } },
+      ],
+      as: 'ratecardDetails'
+    }
+  },
+  {
+    $unwind: '$ratecardDetails'
+  },
+  {
+    $match: {
+      'ratecardDetails.fullDayMinHrs': { $gte: 1 }    }
+  },
+  {
+    $project: {
+      _id: 0,
+      deliveryAgentId: 1,
+      firstName: 1,
+      lastName: 1,
+      mobile: 1,
+      city: 1,
+      state: 1
+    }
+  }
+])
+
+
+
+db.collection('Order').aggregate([
+  { $match: { 'amount': { $lt: 500 }, 'orderStatus': 'OUT_FOR_DELIVERY', 'paymentType': 'COD' } },
+  { $project: { 'awbNumber': 1, 'deliveryBoyId': 1, '_id': 0 } },
+  { $lookup: {
+      from: 'DeliveryAgent',
+      let: { 'deliveryBoyId': { $toObjectId: '$deliveryBoyId' } },
+      pipeline: [
+        { $match: { $expr: { $eq: ['$_id', '$$deliveryBoyId'] } } },
+        { $project: { 'firstName': 1, 'lastName': 1, 'mobile': 1, 'city': 1, 'state': 1, '_id': 0 } }
+      ],
+      as: 'deliveryAgentDetails'
+    }
+  },
+  { $unwind: '$deliveryAgentDetails' },
+  { $project: {
+      'awbNumber': 1,
+      'firstName': '$deliveryAgentDetails.firstName',
+      'lastName': '$deliveryAgentDetails.lastName',
+      'mobile': '$deliveryAgentDetails.mobile',
+      'city': '$deliveryAgentDetails.city',
+      'state': '$deliveryAgentDetails.state'
+    }
+  }
+])
