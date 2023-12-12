@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  frontend:
+    image: doctorati/glaze:frontend-3.3
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=local
+      - NEXTAUTH_URL=${FRONTEND_URL}
+    depends_on:
+      - backend
+  backend:
+    image: doctorati/glaze:backend-3.3
+    ports:
+      - '8000:8000'
+    environment:
+      - NODE_ENV=docker
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: doctorati/glaze:database-3.3
+    environment:
+      MYSQL_ROOT_PASSWORD: evolution
+      MYSQL_DATABASE: main
+    volumes:
+      - 'db_data:/var/lib/mysql'
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+volumes:
+  db_data: {}
