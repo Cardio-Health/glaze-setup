@@ -46,11 +46,11 @@ services:
       timeout: 10s
       retries: 5
       start_period: 5s
-  volumes:
-    db_data: {}
-    pg_data:
-      driver: local
-      driver_opts:
-        type: none
-        device: ${HOME}/pg_data
-        o: bind
+volumes:
+  db_data: {}
+  pg_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${HOME}/pg_data
+      o: bind
