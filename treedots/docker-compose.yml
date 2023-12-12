@@ -19,7 +19,7 @@ services:
       db:
         condition: service_healthy
   db:
-    image: doctorati/glaze:database-3.3
+    image: doctorati/glaze:database-3.4
     environment:
       MYSQL_ROOT_PASSWORD: evolution
       MYSQL_DATABASE: main
