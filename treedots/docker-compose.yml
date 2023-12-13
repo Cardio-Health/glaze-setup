@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   frontend:
-    image: doctorati/glaze:frontend-3.4
+    image: doctorati/glaze:frontend-3.3
     ports:
       - '3000:3000'
     environment:
@@ -10,13 +10,13 @@ services:
     depends_on:
       - backend
   backend:
-    image: doctorati/glaze:backend-3.4
+    image: doctorati/glaze:backend-3.3
     ports:
       - '8000:8000'
     environment:
       - NODE_ENV=docker
     depends_on:
-      pgdb:
+      db:
         condition: service_healthy
   db:
     image: doctorati/glaze:database-3.4
@@ -31,26 +31,5 @@ services:
       timeout: 10s
       retries: 5
       start_period: 5s
-  pgdb:
-    image: doctorati/glaze:pg_database-3.5
-    environment:
-      POSTGRES_PASSWORD: evolution
-      POSTGRES_DB: main
-      POSTGRES_USER: postgres
-      PGUSER: postgres
-    volumes:
-      - pg_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready", "-U", "postgres", "-d", "main"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 5s
 volumes:
   db_data: {}
-  pg_data:
-    driver: local
-    driver_opts:
-      type: none
-      device: ${HOME}/pg_data
-      o: bind
