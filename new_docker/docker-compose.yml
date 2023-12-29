@@ -7,6 +7,7 @@ services:
     environment:
       - NODE_ENV=local
       - NEXTAUTH_URL=${FRONTEND_URL}
+      - MANUAL_BACKEND_HOST=${MANUAL_BACKEND_HOST}
     depends_on:
       - backend
   backend:
@@ -15,6 +16,8 @@ services:
       - '8000:8000'
     environment:
       - NODE_ENV=docker
+      - MANUAL_DATABASE_HOST=${MANUAL_DATABASE_HOST}
+      - MANUAL_DATABASE_PORT=${MANUAL_DATABASE_PORT}
     depends_on:
       pgdb:
         condition: service_healthy
